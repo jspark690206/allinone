@@ -127,17 +127,21 @@ Status: Downloaded newer image for hello-world:latest
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
+To generate this message, Docke
+[중간 생략 전체 로그 참조]
+ntainer from that image which runs the
     executable that produces the output you are currently reading.
  4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
 
-To try something more ambitious, you can run an Ubuntu container
-[이하 전체 로그 참조]
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
 exit=0
 ```
 
@@ -224,20 +228,16 @@ $ docker build -t e1-workstation:1.0 .
 #4 [internal] load build context
 #4 DONE 0.0s
 
-#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#5 resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#5 ...
-
-#4 [internal] load build context
-#4 transferring context: 252B 0.0s done
-#4 DONE 0.3s
-
-#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#5 resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606 0.2s done
-#5 DONE 1.1s
-
-#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3b
-[이하 전체 로그 참조]
+#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2ae
+[중간 생략 전체 로그 참조]
+ attestation manifest sha256:e521eb006a1432a90b69b75a3df2cdc57228ea5641042b4db6a14dbb6da76d76 0.2s done
+#7 exporting manifest list sha256:b52d639705a0a06a35df0cefccb8103c8d3e5e2314dacf66cfd1159d961b48b6
+#7 exporting manifest list sha256:b52d639705a0a06a35df0cefccb8103c8d3e5e2314dacf66cfd1159d961b48b6 0.2s done
+#7 naming to docker.io/library/e1-workstation:1.0
+#7 naming to docker.io/library/e1-workstation:1.0 0.0s done
+#7 unpacking to docker.io/library/e1-workstation:1.0
+#7 unpacking to docker.io/library/e1-workstation:1.0 1.6s done
+#7 DONE 3.4s
 exit=0
 ```
 
@@ -415,21 +415,25 @@ e1-vol-before가 볼륨에 proof.txt를 썼고, 그 컨테이너를 삭제한 �
 ## 10 Git 설정과 GitHub 제출
 
 ```text
-$ git config --local --list
-fatal: --local can only be used inside a git repository
+$ git -c safe.directory=D:/!!!Codyssay자료/mission_work/workstation-e1 config --local --list
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+user.name=E1 Learner
+user.email=learner@example.invalid
+init.defaultbranch=main
+remote.origin.url=https://github.com/jspark690206/allinone.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 
 ```
 
 ```text
-$ git remote -v
-fatal: detected dubious ownership in repository at 'D:/!!!Codyssay자료/mission_work/workstation-e1'
-'D:/!!!Codyssay자료/mission_work/workstation-e1/.git' is owned by:
-	DK-PARK/user (S-1-5-21-3331065726-1128293879-1966178180-1000)
-but the current user is:
-	DK-PARK/CodexSandboxOffline (S-1-5-21-3331065726-1128293879-1966178180-1007)
-To add an exception for this directory, call:
-
-	git config --global --add safe.directory 'D:/'\!''\!''\!'Codyssay자료/mission_work/workstation-e1'
+$ git -c safe.directory=D:/!!!Codyssay자료/mission_work/workstation-e1 remote -v
+origin	https://github.com/jspark690206/allinone.git (fetch)
+origin	https://github.com/jspark690206/allinone.git (push)
 
 ```
 
@@ -520,22 +524,25 @@ Image e1-workstation:1.0 Building
 #5 DONE 0.1s
 
 #6 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#6 resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606 0.1s done
-#6 DONE 0.2s
+#6 resolve docker.io/library/nginx:alpine@sha256:785835ea65db
+[중간 생략 전체 로그 참조]
+c478a2d61ea6adf64c4c316ed2b91935afda98307
+#8 exporting manifest list sha256:937fbf4ddf693292292ad9cc478a2d61ea6adf64c4c316ed2b91935afda98307 0.1s done
+#8 naming to docker.io/library/e1-workstation:1.0 0.0s done
+#8 unpacking to docker.io/library/e1-workstation:1.0 0.1s done
+#8 DONE 1.2s
 
-#6 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#6 CACHED
-
-#7 [2/2] COPY site/ /usr/share/nginx/html/
-#7 DONE 0.2s
-
-#8 exporting to image
-#8 exporting layers
-#8 exporting layers 0.6s done
-#8 exporting manifest sha256:9dbbc62be4322c4b83482bb6782f61140d9e4cb18e7351cf76a51a87967bf9cf 0.1s done
-#8 exporting config sha256:846d745051a656eb982a48dcab76241adbd3b3a8fc818a9eb65d8737f098a26f 0.1s done
-#8 exporting attestation manifest sha256:23aa3bcdde19afa4083c698a98a4dcd21c63d3603565845f6e2072eb3ce70102 0.1s
-[이하 전체 로그 참조]
+#9 resolving provenance for metadata file
+#9 DONE 0.0s
+ Image e1-workstation:1.0 Built 
+ Network e1bonus_default Creating 
+ Network e1bonus_default Creating 
+ Network e1bonus_default Created 
+ Network e1bonus_default Created 
+ Container e1bonus-web-1 Creating 
+ Container e1bonus-web-1 Created 
+ Container e1bonus-web-1 Starting 
+ Container e1bonus-web-1 Started
 exit=0
 ```
 
