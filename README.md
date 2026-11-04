@@ -430,6 +430,8 @@ user.email=learner@example.invalid
 init.defaultbranch=main
 remote.origin.url=https://github.com/jspark690206/allinone.git
 remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
 
 ```
 
@@ -441,6 +443,15 @@ origin	https://github.com/jspark690206/allinone.git (push)
 ```
 
 Git은 로컬 변경과 커밋 이력을 관리한다. GitHub는 원격 저장소와 협업 기능을 제공한다. 과제 저장소에만 user.name, user.email, init.defaultBranch를 설정했으며 전역 설정은 변경하지 않았다. learner@example.invalid는 개인 메일을 노출하지 않는 실습용 작성자 주소다.
+
+GitHub 저장소의 기존 소개 문구를 보존하여 병합한 뒤 main 브랜치 업로드를 완료했다. 아래는 실제 push 성공 결과다. 제출자는 저장소 README에서 전체 로그와 소스에 접근할 수 있다.
+
+```text
+$ git push -u origin main
+branch main set up to track origin/main
+To https://github.com/jspark690206/allinone.git
+24f8d83..e4365de main -> main
+```
 
 VSCode에서 이 폴더를 열고 Accounts에서 GitHub에 로그인한 뒤 Source Control의 원격 저장소 연결을 확인한다. 로그인 화면이나 원격 연결 화면에는 토큰과 인증 코드를 담지 않는다. GitHub 업로드만으로 VSCode 로그인까지 입증되지는 않는다.
 
@@ -519,23 +530,9 @@ Image e1-workstation:1.0 Building
 #3 DONE 0.6s
 
 #4 [internal] load .dockerignore
-#4 transferring context: 67B done
-#4 DONE 0.1s
-
-#5 [internal] load build context
-#5 transferring context: 252B done
-#5 DONE 0.1s
-
-#6 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
-#6 resolve docker.io/library/nginx:alpine@sha256:785835ea65db
+#4 trans
 [중간 생략 전체 로그 참조]
-c478a2d61ea6adf64c4c316ed2b91935afda98307
-#8 exporting manifest list sha256:937fbf4ddf693292292ad9cc478a2d61ea6adf64c4c316ed2b91935afda98307 0.1s done
-#8 naming to docker.io/library/e1-workstation:1.0 0.0s done
-#8 unpacking to docker.io/library/e1-workstation:1.0 0.1s done
-#8 DONE 1.2s
-
-#9 resolving provenance for metadata file
+ provenance for metadata file
 #9 DONE 0.0s
  Image e1-workstation:1.0 Built 
  Network e1bonus_default Creating 
@@ -564,8 +561,9 @@ $ curl.exe --fail -i http://localhost:18082
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 100   180  100   180    0     0    855      0 --:--:-- --:--:-- --:--:--   857
 HTTP/1.1 200 OK
-Server: nginx/1.31.8
-Date: Wed, 04 Nov 2026 07:29:30 GMT
+Server: nginx/1.31.
+[중간 생략 전체 로그 참조]
+ 04 Nov 2026 07:29:30 GMT
 Content-Type: text/html
 Content-Length: 180
 Last-Modified: Wed, 04 Nov 2026 07:29:21 GMT
@@ -599,4 +597,3 @@ exit=0
 Compose 서비스가 Up 상태이고 localhost:18082에서 HTTP 200을 반환하며 페이지 본문이 Release 2이면 실행 검증을 통과한다. down 뒤에는 서비스 컨테이너가 정리되어야 한다. 이 실습의 Compose 서비스에는 named volume을 연결하지 않았으므로 기본 미션의 e1-persistent 볼륨 실험과는 별개다.
 
 근거 문서 미션 1 E1 1 PDF의 최종 결과물 기능 요구 사항 제약 사항 결과 예시 및 보너스 과제 항목.
-
