@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    image: e1-workstation:1.0
+    ports:
+      - "127.0.0.1:18082:80"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+    restart: unless-stopped
