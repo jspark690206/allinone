@@ -1,3 +1,6 @@
+# allinone
+코디세이1-1 프로젝트
+
 # 개발 워크스테이션 구축 실습
 
 [전체 실행 명령과 출력](evidence/terminal-log.md) | [구조화 로그](evidence/logs.json)
@@ -596,3 +599,4 @@ exit=0
 Compose 서비스가 Up 상태이고 localhost:18082에서 HTTP 200을 반환하며 페이지 본문이 Release 2이면 실행 검증을 통과한다. down 뒤에는 서비스 컨테이너가 정리되어야 한다. 이 실습의 Compose 서비스에는 named volume을 연결하지 않았으므로 기본 미션의 e1-persistent 볼륨 실험과는 별개다.
 
 근거 문서 미션 1 E1 1 PDF의 최종 결과물 기능 요구 사항 제약 사항 결과 예시 및 보너스 과제 항목.
+
